@@ -35,12 +35,13 @@ exports.createPages = ({graphql, actions}) => {
 
         cars.forEach(car => {
           const {id, slug} = car.node
+          console.log('id:'+ id +" ,slug: " +slug)
           createPage({
               path: slug,
-              component: path.resolve(`src/templates/templateStyles/carTemplate.js`),
+              component: path.resolve(`src/templates/CarTemplate.js`),
               context: {
-                  id,
-                  slug
+                  id: id,
+                  slug: slug
               }
           })
       })
