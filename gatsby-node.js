@@ -25,22 +25,25 @@ exports.createPages = ({graphql, actions}) => {
                 return Promise.reject(result.errors)
             });
 
-            const cars = result.data.wpconten.cars.edges;
-            console.log(cars)
 
-            cars.forEach(car => {
-                const {id, slug} = car.node
-                createPage({
-                    path: slug,
-                    component: path.resolve(`src\templates\templateStyles\cars.js`),
-                    context: {
-                        id,
-                        slug
-                    }
-                })
-            })
 
             return result
         }
+
+        const cars = result.data.wpcontent.cars.edges;
+        console.log(cars)
+
+        cars.forEach(car => {
+          const {id, slug} = car.node
+          createPage({
+              path: slug,
+              component: path.resolve(`src/templates/templateStyles/carTemplate.js`),
+              context: {
+                  id,
+                  slug
+              }
+          })
+      })
+
     })
 }
