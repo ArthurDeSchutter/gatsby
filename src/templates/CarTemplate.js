@@ -4,7 +4,8 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const CarTemplate = ({pageContext}) => {
-    console.log(pageContext.id, "id")
+    console.log(pageContext, "id")
+    console.log(pageQuery)
     return(
         <div>
             hello
@@ -15,25 +16,17 @@ const CarTemplate = ({pageContext}) => {
 export default CarTemplate
 
 export const pageQuery = graphql`
-query ($id: Int!) {
-    wpcontent {
-      cars(where: {id: $id}) {
-        edges {
-          node {
-            slug
-            id
-            Car {
-              amountOfWheels
-              brand
-              fieldGroupName
-              licencePlate
-              model
-            }
-            carId
-          }
-        }
+query ($id: ID!) {
+  wpcontent {
+    car(id: $id, idType: ID) {
+      Car {
+        amountOfWheels
+        brand
+        fieldGroupName
+        licencePlate
+        model
       }
     }
   }
-  
+}
 `
