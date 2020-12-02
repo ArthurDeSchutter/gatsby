@@ -31,7 +31,6 @@ exports.createPages = ({graphql, actions}) => {
         }
 
         const cars = result.data.wpcontent.cars.edges;
-        console.log(cars)
 
         cars.forEach(car => {
           const {id, slug} = car.node

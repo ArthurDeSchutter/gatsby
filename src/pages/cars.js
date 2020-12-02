@@ -1,58 +1,61 @@
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import {View, Text} from "react"
+import { View, Text } from "react"
 
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import PropTypes from "prop-types"
+import { graphql, Link } from "gatsby"
 
 const cars = ({ data }) => {
   console.log(data)
   //map over the array
   var allcars = data.wpcontent.cars.edges
   var cars = []
-  allcars.map((car,index) => {cars.push(<CarView car={car} slug={data.wpcontent.cars.edges[index].slug}></CarView>)})
-  return(
+  allcars.map((car, index) => {
+    cars.push(<CarView car={car.node.Car} key={index} slug={car.node.slug}></CarView>)
+  })
+  console.log(cars)
+  return (
     <Layout>
-    {cars}
-  </Layout>
-)
+      <Seo title="cars"></Seo>
+      {cars}
+    </Layout>
+  )
 }
 
-const CarView = (props) => {
-   const {brand, model} = props.car
-   const slug = props.slug
-   const link = "/" + slug
+export const CarView = (props) => {
+  const { brand, model } = props.car
+  const slug = props.slug
+  const link = "/" + slug
+  console.log(props.car)
+  console.log(slug)
 
-   return(
-   <View>
-     <Link to={{pathname: `/${slug}`}}>
-      <Text>
-        {brand}, {model}
-      </Text>
-     </Link>
-   </View>
-   )
- }
-
-
+  return(
+  <>
+    <View>
+        <Text>
+          {brand}, {model}
+        </Text>
+    </View>
+    </>
+  )
+}
 
 export const pageQuery = graphql`
-
-{
-  wpcontent {
-    cars {
-      edges {
-        node {
-          Car {
-            brand
-            model
+  {
+    wpcontent {
+      cars {
+        edges {
+          node {
+            Car {
+              brand
+              model
+            }
+            slug
           }
-          slug
         }
       }
     }
   }
-}`
+`
 
 export default cars
