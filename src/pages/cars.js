@@ -1,6 +1,8 @@
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { View, Text } from "react"
+//import { Link } from "gatsby"
+
 
 import React from "react"
 import { graphql, Link } from "gatsby"
@@ -31,11 +33,13 @@ export const CarView = (props) => {
 
   return(
   <>
-    <View>
-        <Text>
-          {brand}, {model}
-        </Text>
-    </View>
+    <Link to={link}>
+      <div>
+          <h2>
+            {brand}, {model}
+          </h2>
+      </div>
+    </Link>
     </>
   )
 }

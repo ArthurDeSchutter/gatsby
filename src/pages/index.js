@@ -7,6 +7,22 @@ import Layout from "../components/layout"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
+    <h1>featured:</h1>
+    <Link to="/toyota">
+      <div>
+          <h2>
+          Toyota, supra
+          </h2>
+      </div>
+    </Link>
+    <Link to="/skyline">
+      <div>
+          <h2>
+          nissan, Skyline
+          </h2>
+      </div>
+    </Link>
+
   </Layout>
 )
 

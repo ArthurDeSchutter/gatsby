@@ -47,9 +47,21 @@ const Header = ({ siteTitle }) => {
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          Home
         </Link>
       </h1>
+      <h2 style={{ margin: 0, display: "inline" }}>
+        <Link
+          to="/cars"
+          style={{
+            color: `white`,
+            textDecoration: `none`,
+          }}
+        >
+          Product overview
+        </Link>
+      </h2>
+
     </div>
   </header>
   </>
