@@ -34,6 +34,7 @@ const Header = ({ siteTitle }) => {
   >
     <div
       style={{
+        display: 'flex',
         margin: `0 auto`,
         maxWidth: 960,
         padding: `1.45rem 1.0875rem`,
@@ -50,17 +51,14 @@ const Header = ({ siteTitle }) => {
           Home
         </Link>
       </h1>
-      <h2 style={{ margin: 0, display: "inline" }}>
+      <h3 >
         <Link
           to="/cars"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
+          style={styles.menuItem}
         >
           Product overview
         </Link>
-      </h2>
+      </h3>
 
     </div>
   </header>
@@ -76,4 +74,13 @@ Header.defaultProps = {
   siteTitle: ``,
 }
 
+const styles = {
+  menuItem:{
+    color: `white`,
+    textDecoration: `none`,
+    marginTop: "15px",
+    paddingLeft: "50px"
+
+  }
+}
 export default Header

@@ -5,11 +5,9 @@ import Seo from "../components/seo"
 import { Image } from "./templateStyles/artistStyles"
 
 const CarTemplate = ({data}) => {
-    console.log(data, "id")
     console.log(data.wpcontent.car.Car)
-    const {amountofWheels, brand, licencePlate, model} = data.wpcontent.car.Car
-    const {uri, altText} = data.wpcontent.car.Car.model
-    console.log(amountofWheels)
+    const {amountofWheels, brand, licencePlate, model, image} = data.wpcontent.car.Car
+    const {sourceUrl, altText} = data.wpcontent.car.Car.model
     return(
       
       <Layout>
@@ -20,7 +18,7 @@ const CarTemplate = ({data}) => {
         <h2>Model: {model}</h2>
         <h3>licence plate: {licencePlate}</h3>
         <h3>amount of wheels: {amountofWheels}</h3>
-        <img src={uri} alt={altText}></img>
+        <img src={image.sourceUrl} alt={altText}></img>
       </Layout>
       
     )
@@ -39,7 +37,7 @@ query ($id: ID!) {
         licencePlate
         model
         image {
-          uri
+          sourceUrl
         }
       }
     }

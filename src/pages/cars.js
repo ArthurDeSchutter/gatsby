@@ -25,7 +25,7 @@ const cars = ({ data }) => {
 }
 
 export const CarView = (props) => {
-  const { brand, model } = props.car
+  const { brand, model, image } = props.car
   const slug = props.slug
   const link = "/" + slug
   console.log(props.car)
@@ -38,6 +38,7 @@ export const CarView = (props) => {
           <h2>
             {brand}, {model}
           </h2>
+          <img src={image.sourceUrl} width="30%" height="30%"/>
       </div>
     </Link>
     </>
@@ -53,6 +54,9 @@ export const pageQuery = graphql`
             Car {
               brand
               model
+              image {
+            sourceUrl
+          }
             }
             slug
           }
