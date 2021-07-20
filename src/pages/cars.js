@@ -28,8 +28,15 @@ export const CarView = (props) => {
   const { brand, model, image } = props.car
   const slug = props.slug
   const link = "/" + slug
+  let imgIsValid = false
   console.log(props.car)
   console.log(slug)
+
+
+  function returnIMG() {
+    return <img src={image.sourceUrl} width="30%" height="30%"/>
+
+  }
 
   return(
   <>
@@ -38,7 +45,7 @@ export const CarView = (props) => {
           <h2>
             {brand}, {model}
           </h2>
-          <img src={image.sourceUrl} width="30%" height="30%"/>
+          {image.sourceUrl ? !null : <img src={image.sourceUrl} width="30%" height="30%"/>}
       </div>
     </Link>
     </>
