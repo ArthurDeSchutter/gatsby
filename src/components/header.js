@@ -28,7 +28,7 @@ const Header = ({ siteTitle }) => {
     <>
     <header
     style={{
-      background: `rebeccapurple`,
+      background: `#14213d`,
       marginBottom: `1.45rem`,
     }}
   >
@@ -44,11 +44,11 @@ const Header = ({ siteTitle }) => {
         <Link
           to="/"
           style={{
-            color: `white`,
+            color: `#fca311`,
             textDecoration: `none`,
           }}
         >
-          Home
+          Desprint Cars
         </Link>
       </h1>
       <h3 >
@@ -76,7 +76,7 @@ Header.defaultProps = {
 
 const styles = {
   menuItem:{
-    color: `white`,
+    color: `#fca311`,
     textDecoration: `none`,
     marginTop: "15px",
     paddingLeft: "50px"

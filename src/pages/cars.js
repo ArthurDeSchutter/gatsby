@@ -3,7 +3,6 @@ import Seo from "../components/seo"
 import { View, Text } from "react"
 //import { Link } from "gatsby"
 
-
 import React from "react"
 import { graphql, Link } from "gatsby"
 
@@ -13,7 +12,9 @@ const cars = ({ data }) => {
   var allcars = data.wpcontent.cars.edges
   var cars = []
   allcars.map((car, index) => {
-    cars.push(<CarView car={car.node.Car} key={index} slug={car.node.slug}></CarView>)
+    cars.push(
+      <CarView car={car.node.Car} key={index} slug={car.node.slug}></CarView>
+    )
   })
   console.log(cars)
   return (
@@ -24,7 +25,7 @@ const cars = ({ data }) => {
   )
 }
 
-export const CarView = (props) => {
+export const CarView = props => {
   const { brand, model, image } = props.car
   const slug = props.slug
   const link = "/" + slug
@@ -33,21 +34,24 @@ export const CarView = (props) => {
   console.log(slug)
 
 
-  function returnIMG() {
-    return <img src={image.sourceUrl} width="30%" height="30%"/>
-
-  }
-
-  return(
-  <>
-    <Link to={link}>
-      <div>
-          <h2>
+  return (
+    <>
+      <Link to={link}>
+        <div>
+          <h2
+            style={{
+              color: `#fca311`,
+            }}
+          >
             {brand}, {model}
-          </h2>
-          {image.sourceUrl ? !null : <img src={image.sourceUrl} width="30%" height="30%"/>}
-      </div>
-    </Link>
+          </h2 >
+          {image.sourceUrl ? (
+            !null
+          ) : (
+            <img src={image.sourceUrl} width="30%" height="30%" />
+          )}
+        </div>
+      </Link>
     </>
   )
 }
@@ -62,8 +66,8 @@ export const pageQuery = graphql`
               brand
               model
               image {
-            sourceUrl
-          }
+                sourceUrl
+              }
             }
             slug
           }

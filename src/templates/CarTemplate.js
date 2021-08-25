@@ -14,11 +14,13 @@ const CarTemplate = ({data}) => {
         <Seo title="car">
 
         </Seo>
-        <h1>Brand: {brand}</h1>
-        <h2>Model: {model}</h2>
-        <h3>licence plate: {licencePlate}</h3>
-        <h3>amount of wheels: {amountofWheels}</h3>
+        <h1 style={styles.yellowtext} >Brand: {brand}</h1>
+        <h2 style={styles.yellowtext}>Model: {model}</h2>
+        <h3 style={styles.yellowtext}>licence plate: {licencePlate}</h3>
+        <h3 style={styles.yellowtext}>amount of wheels: {amountofWheels}</h3>
         <img src={image.sourceUrl} alt={altText}></img>
+        <Link to="/cars" style={styles.yellowtext}><h2 style={styles.yellowtext}>Terug</h2> </Link>
+
       </Layout>
       
     )
@@ -44,3 +46,10 @@ query ($id: ID!) {
   }
 }
 `
+
+const styles = {
+  yellowtext: {
+      color: `#fca311`
+    }
+
+  }
