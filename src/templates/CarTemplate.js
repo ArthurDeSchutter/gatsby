@@ -1,13 +1,12 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { Image } from "./templateStyles/artistStyles"
 
 const CarTemplate = ({data}) => {
     console.log(data.wpcontent.car.Car)
     const {amountOfWheels, brand, licencePlate, model, image} = data.wpcontent.car.Car
-    const {sourceUrl, altText} = data.wpcontent.car.Car.model
+    const {altText} = data.wpcontent.car.Car.model
     return(
       
       <Layout>

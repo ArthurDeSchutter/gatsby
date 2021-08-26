@@ -1,6 +1,5 @@
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { View, Text } from "react"
 //import { Link } from "gatsby"
 
 import React from "react"
@@ -29,7 +28,6 @@ export const CarView = props => {
   const { brand, model, image } = props.car
   const slug = props.slug
   const link = "/" + slug
-  let imgIsValid = false
   console.log(props.car)
   console.log(slug)
 

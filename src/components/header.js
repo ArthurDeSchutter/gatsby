@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import PropTypes from "prop-types"
 
-const Header = ({ siteTitle }) => {
+const Header = () => {
   const{ 
       wpcontent: {cars},
   } = useStaticQuery(graphql`
