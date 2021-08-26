@@ -6,7 +6,7 @@ import { Image } from "./templateStyles/artistStyles"
 
 const CarTemplate = ({data}) => {
     console.log(data.wpcontent.car.Car)
-    const {amountofWheels, brand, licencePlate, model, image} = data.wpcontent.car.Car
+    const {amountOfWheels, brand, licencePlate, model, image} = data.wpcontent.car.Car
     const {sourceUrl, altText} = data.wpcontent.car.Car.model
     return(
       
@@ -17,7 +17,7 @@ const CarTemplate = ({data}) => {
         <h1 style={styles.yellowtext} >Brand: {brand}</h1>
         <h2 style={styles.yellowtext}>Model: {model}</h2>
         <h3 style={styles.yellowtext}>licence plate: {licencePlate}</h3>
-        <h3 style={styles.yellowtext}>amount of wheels: {amountofWheels}</h3>
+        <h3 style={styles.yellowtext}>amount of wheels: {amountOfWheels}</h3>
         <img src={image.sourceUrl} alt={altText}></img>
         <Link to="/cars" style={styles.yellowtext}><h2 style={styles.yellowtext}>Terug</h2> </Link>
 
